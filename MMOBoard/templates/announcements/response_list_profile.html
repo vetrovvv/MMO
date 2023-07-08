@@ -1,0 +1,117 @@
+{% extends 'flatpages/default.html' %} 
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}
+Объявления
+{% endblock title %}
+ 
+{% block content %}
+
+<h1 class="git">Отклики на ваши объявления</h1>
+
+
+<form method="GET" class="box1">
+	{{ filter.form }}
+	<input type="submit" value="Найти">
+</form>
+
+
+{%if responses.count > 0 %}
+<table >
+	<thead class="lol">
+
+		<td>
+		Покупатель
+
+		</td>
+		<td>
+		Сообщение
+
+		</td>
+		<td>
+		Объявление
+
+		</td>
+	</thead>
+{%else%}
+
+{%endif%}
+
+{% for response in responses %}
+
+
+
+
+
+	<p>Откликнулся: <a href="/announcements/profile/{{response.buyer.id}}/">{{response.buyer}}</a> на объявление <a href="{{response.announcement.get_absolute_url}}">{{response.announcement.header}}</a> от {{response.announcement.created_at_date}}</p>
+
+	<p>Сообщение: <a href="/announcements/profile/{{response.author.id}}/responses/{{response.id}}">{{response.message|truncatechars:9}}...</a></p>
+		</tr>
+	</td>
+
+    {%if response.confirm == True%}
+	<td>
+		<a  class="btn1" href="/announcements/profile/{{response.author.id}}/responses/{{response.id}}">🤝 Вы согласились на предложение!"</a>
+	</td>
+	{%endif%}
+
+	{%if response.confirm != True%}
+	<td>
+	<form method="POST" action="{% url 'confirm_response' %}">
+		{% csrf_token %} 
+		<input id ="response" type="hidden" name="response" value="{{response.id}}">
+		<input type="submit" class="btn1"value="✅">
+	</form>
+	</td>
+
+    {%endif%}
+    {% if response.refuse != True %}
+    <td>
+    <form method="POST" action="{% url 'refuse_response' %}">
+		{% csrf_token %} 
+		<input id ="response" type="hidden" name="response" value="{{response.id}}">
+		<input type="submit" class="btn1" value="❌">
+    </form>
+    </td>
+    {%endif%}
+	</td>
+	
+		<a class="btn1" href="/announcements/profile/{{response.author.id}}/responses/{{response.id}}">Подробнее</a>
+	</td>
+</tr>
+
+
+{% endfor %}
+</table>
+
+{%if "?" in request.build_absolute_uri %}
+{% if responses.has_other_pages %}
+<div class="container1">
+    	<ul class="pagination">
+    {% if responses.has_previous %}
+        <li><a href="&page=1">First</a></li>
+        <li><a href="{{request.build_absolute_uri|path_without_pages}}&page={{ responses.previous_page_number }}"><<<</a></li>
+    {% endif %}
+    {% for num in responses.paginator.page_range %}
+        {% if responses.number == num %}
+            <li><a>{{ num }}</a></li>
+        {% elif num > responses.number|add:'-2' and num < responses.number|add:'2' %}
+            <li><a href="{{request.build_absolute_uri|path_without_pages}}&page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+    {% endfor %}
+    {% if responses.has_next %}
+        <li><a href="{{request.build_absolute_uri|path_without_pages}}&page={{ responses.next_page_number }}">>>></a></li>
+        <li><a href="{{request.build_absolute_uri|path_without_pages}}&page={{ responses.paginator.num_pages }}">Last</a></li>
+    {% endif %}
+        </ul>
+</div>
+{% endif %}
+{% endif %}
+
+
+
+
+
+    
+{% endblock content %}

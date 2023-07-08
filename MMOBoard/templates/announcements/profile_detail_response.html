@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %} 
+{% load custom_filters %}
+{% load thumbnail %}
+
+{% block title %}
+Отклик
+{% endblock title %}
+ 
+
+{% block content %}
+{{buyer}}
+{{anctresponse.message}}
+
+
+
+
+{% endblock content %} 

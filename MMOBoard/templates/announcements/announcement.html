@@ -1,0 +1,90 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %} 
+{% load custom_filters %}
+{% load thumbnail %}
+{% load static %}
+
+{% block title %}
+Новости
+{% endblock title %}
+ 
+
+{% block content %}
+<h2 class="git">{{announcement.header}}</h2>
+<div class="blog-item">
+	<div class="blog-text text-box text-white">
+		<div class="top-meta"><a href="/announcements/profile/{{announcement.announcement_author.id}}/">{{announcement.announcement_author_id|author}}</a> / {{announcement.created_at_date}}  / <a href="/announcements/search/?created_at_date__gte=&announcement_author_id=&category={{ announcement.category.all.first.id}}">{{ announcement.category.all.first }}</a><form action="become_subscriber_detail/" method="POST"></form>
+{% csrf_token %} 
+{%for category in announcement.category.all%}
+{%if category not in request.user.announcement_author.subscribing_categories.all %}
+{% for category in announcement.category.filter %}
+    <label for="category">Категория: {{ category }}</label>
+    <input id="category" type="checkbox" name="category" value="{{ category }}">
+{% endfor %}
+    <button type="submit" class="site-btn">Подписаться  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></button>
+
+
+</form>
+{%elif category in request.user.announcement_author.subscribing_categories.all%}
+<p class="white-style">Вы уже подписаны на {{category}}</p>
+{%endif%}
+{%endfor%}
+        <div class="announcement">
+		<p class="simple-white">{{announcement.main_text|censor}}</p>
+		</div>
+	</div>
+
+
+	
+		{% for file in announcement.files.all %}
+
+
+				{%if file.extension == '.jpg' or file.extension == '.jpeg' or file.extension == '.png'%}
+
+					<img src="{{ file.file_url }}" alt="картинка" width="200" height="200">
+	
+				{%elif file.extension == '.mp4' %}
+
+					<video controls="controls" class="video-js" id ="video-1"><source src="{{file.file_url}}" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2"></video>
+
+				{%endif%}
+
+
+       	</div>
+       
+		{% endfor %}
+		
+   </li>
+</ul>
+</div>
+<div class="buttons">
+{% if announcement.announcement_author_id == request.user.id %}
+<a href="{% url 'edit' announcement.id %}" class="site-btn">Редактировать</a>
+<a href="{% url 'delete' announcement.id %}" class="site-btn">Удалить</a>
+{% endif %}
+
+<a  href="{% url 'announcements' %}" class="site-btn">Назад к объявлениям</a>
+
+
+{% if announcement.announcement_author != user %}
+
+<form class="response" action="response/" method="POST">
+{% csrf_token %} 
+    <textarea id="message" type="text" rows="10" columns="10" name="message"></textarea>
+    <input id="author" type="hidden" name="author" value="{{ announcement.announcement_author.id }}">
+    <input id="announcement" type="hidden" name="announcement" value="{{ announcement.id }}">
+
+
+    <input type="submit" class="site-btn" value="Откликнуться">
+
+
+</form>
+
+
+{%endif%}
+
+</div>
+</div>
+</div>
+
+{% endblock content %} 

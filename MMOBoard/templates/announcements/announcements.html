@@ -1,0 +1,61 @@
+{% extends 'flatpages/default.html' %} 
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>{% block title %}Объявления{% endblock title %}</title>
+
+</head>
+ 
+{% block content %}
+<h1 id="all_a">Все объявления</h1>
+<h3>{{ time_now|date:'M d Y' }}</h3>
+<hr>
+
+
+
+
+{% for announcement in announcements %}
+<div class="blog-item">
+	<div class="blog-thumb">
+		<img src="{{ announcement.get_first_photo_href }}" alt="Image" height="200" width="200">
+	</div>
+	<div class="blog-text text-box text-white">
+		<div class="top-meta">{{announcement.created_at_date}}  / <a href="">{{ announcement.category.all.first }}</a></div>
+		<h3><a href="/announcements/profile/{{announcement.announcement_author.id}}/">{{announcement.announcement_author_id|author}}</a></h3>
+		<p>{{announcement.main_text|censor|truncatechars:50}}</p>
+		<a href="{{ announcement.get_absolute_url }}" class="read-more">Подробнее  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
+		</div>
+	</div>
+
+{% endfor %}
+
+
+{% if is_paginated %}
+<div class="container1">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+        <li><a href="?page=1">First</a></li>
+        <li><a href="?page={{ page_obj.previous_page_number }}"><<<</a></li>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <li><a>{{ num }}</a></li>
+        {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+            <li><a href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}">>>></a></li>
+        <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+  </ul>
+</div>
+    {% endif %}
+{% endif %}
+
+
+
+
+
+{% endblock content %}

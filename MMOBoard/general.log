@@ -1,0 +1,71 @@
+2023-05-30 19:48:30,291 INFO autoreload Watching for file changes with StatReloader
+2023-05-30 19:49:42,989 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-05-30 19:49:43,187 INFO autoreload Watching for file changes with StatReloader
+2023-05-30 19:49:48,769 INFO autoreload Watching for file changes with StatReloader
+2023-05-30 19:49:59,007 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-05-30 19:50:30,369 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 13:12:07,869 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 13:16:11,495 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 13:16:11,747 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 13:17:11,015 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 13:24:57,307 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 13:34:04,277 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 17:34:24,603 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 17:54:36,690 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/forms.py changed, reloading.
+2023-06-03 17:54:36,961 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 17:56:00,804 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:02:28,290 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-03 18:02:28,568 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:33:00,193 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-03 18:33:00,453 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:33:32,377 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-03 18:33:32,638 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:34:00,494 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/forms.py changed, reloading.
+2023-06-03 18:34:00,732 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:36:42,349 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:40:08,037 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:40:08,342 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:41:37,773 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:48:14,910 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:48:37,799 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:48:38,082 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:49:58,577 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:49:58,844 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:50:53,733 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:50:54,007 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:51:35,433 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:51:35,705 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:53:12,649 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-03 18:53:12,930 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:53:36,700 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:55:55,373 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.
+2023-06-03 18:55:55,628 INFO autoreload Watching for file changes with StatReloader
+2023-06-03 18:58:08,710 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 10:54:25,503 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/views.py changed, reloading.
+2023-06-04 10:54:25,828 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 10:56:57,205 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/views.py changed, reloading.
+2023-06-04 10:56:57,532 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 10:58:20,950 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:27:50,147 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:27:50,440 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:28:14,093 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:28:14,382 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:29:18,178 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:29:18,445 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:29:42,327 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:29:42,588 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:29:49,838 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:29:50,078 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:30:39,755 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:32:30,971 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:32:31,274 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:34:21,657 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:34:21,932 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:34:35,487 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:34:35,771 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:34:49,256 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:34:49,528 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:35:08,196 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/announcements/models.py changed, reloading.
+2023-06-04 11:35:08,471 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:57:41,072 INFO autoreload Watching for file changes with StatReloader
+2023-06-04 11:59:09,591 INFO autoreload /home/vitalii/PycharmProjects/MMO/MMOBoard/MMOBoard/settings.py changed, reloading.

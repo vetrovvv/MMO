@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<p>Вы вышли из профиля</p>
+
+<a href="{% url 'login'%}">Нажмите для входа в систему</a>
+<a href="{% url 'announcements' %}"><button class="btn1">На главную страницу</button></a>
+{% endblock %}

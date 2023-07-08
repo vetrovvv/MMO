@@ -1,0 +1,10 @@
+2023-06-04 12:04:54,576 WARNING log Forbidden (CSRF token from POST incorrect.): /announcements/add/
+2023-06-07 20:59:50,083 WARNING log Forbidden (CSRF token from POST incorrect.): /accounts/login/
+2023-06-15 20:35:57,324 WARNING log Forbidden (CSRF token from POST incorrect.): /admin/login/
+2023-06-15 20:40:43,994 WARNING log Forbidden (CSRF token from POST incorrect.): /admin/login/
+2023-07-01 16:18:17,297 WARNING base Session data corrupted
+2023-07-01 16:18:18,666 WARNING base Session data corrupted
+2023-07-01 16:18:18,685 WARNING base Session data corrupted
+2023-07-01 16:18:20,291 WARNING base Session data corrupted
+2023-07-05 20:11:19,613 WARNING log Forbidden (CSRF token from POST incorrect.): /accounts/login/
+2023-07-05 20:11:22,135 WARNING log Forbidden (CSRF token from POST incorrect.): /accounts/login/

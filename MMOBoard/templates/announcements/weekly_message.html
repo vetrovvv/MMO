@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+</head>
+<body>
+    <h3>Уважаемый {{user}}!</h3>
+    <p></p>
+    <h4>Недельные обновления в категории {{cat}}.</h4>
+    <hr>
+    {% for announcement in announcements %}
+        <li>
+            <p>{{ post.getpost }}</p>
+            <p></p>
+            <h3><a href="{{ link }}{{ announcement.get_absolute_url }}">{{ announcement.header}}</a></h3>
+            <p></p>
+            <h4><em>{{ announcement.preview}}</em></h4>
+        </li>
+    {% endfor %}
+</body>
+</html>

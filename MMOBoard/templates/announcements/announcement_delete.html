@@ -1,0 +1,66 @@
+
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %} 
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}
+Удаление объявления
+{% endblock title %}
+ 
+{% block content %}
+<h2 class="mking">Вы действительно хотите удалить данный пост?</h2>
+<h3>{{ time_now|date:'M d Y' }}</h3>
+<h2 class="git">{{announcement.header}}</h2>
+<div class="blog-item">
+    <div class="blog-text text-box text-white">
+        <div class="top-meta">{{announcement.announcement_author_id|author}} / {{announcement.created_at_date}}  / <a href="">{{ announcement.category.all.first }}</a><form action="become_subscriber_detail/" method="POST"></form>
+{% csrf_token %} 
+{%for category in announcement.category.all%}
+{%if category not in request.user.announcement_author.subscribing_categories.all %}
+{% for category in announcement.category.filter %}
+    <label for="category">Категория: {{ category }}</label>
+    <input id="category" type="checkbox" name="category" value="{{ category }}">
+{% endfor %}
+    <button type="submit" class="site-btn">Подписаться  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></button>
+
+
+</form>
+{%elif category in request.user.announcement_author.subscribing_categories.all%}
+<p class="white-style">Вы уже подписаны на {{category}}</p>
+{%endif%}
+{%endfor%}
+        <div class="announcement"></div>
+        <p class="white-style">{{announcement.main_text|censor}}</p>
+        </div>
+    </div>
+
+
+    
+        {% for file in announcement.files.all %}
+
+
+                {%if file.extension == '.jpg' or file.extension == '.jpeg' or file.extension == '.png'%}
+
+                    <img src="{{ file.file_url }}" alt="картинка" width="200" height="200">
+    
+                {%elif file.extension == '.mp4' %}
+
+                    <video controls="controls" class="video-js" id ="video-1"><source src="{{file.file_url}}" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2"></video>
+
+                {%endif%}
+
+
+        </div>
+       
+        {% endfor %}
+        
+   </li>
+</ul>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Удалить" class="btn3">
+</form>
+<a href="{% url 'announcement' announcement.id %}"><button class="btn1">Назад к посту</button></a>
+<a href="{% url 'announcements'  %}"><button class="btn1">На главную страницу</button></a>
+{% endblock content %}

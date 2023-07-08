@@ -1,0 +1,60 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load static %}
+
+ 
+{% block content %}
+	<style>
+   .photo {
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+   }
+   .photo:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 20%; top: 30%; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255,255,230,0.0); /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    border: 1px solid #333; /* Параметры рамки */
+   }
+  </style>
+
+<a href="{{profile.get_update_url}}"><h2 class="git">{{ profile.profile }}</a> <a href="{{profile.get_update_url}}"> <img src="/media/{{ profile.avatar }}"   alt="добавьте аватар" width="120" height="120"></a>
+</h2>
+{%if profile.id != userprofile.id%}
+{%else%}
+
+
+{% for i in userprofile.author_announcements.all %}
+<table>
+	<tr>
+		<td><img src="{{ i.get_first_photo_href }}"    width="50" height="50"></a><a href="{{i.get_absolute_url}}"> {{i.header|truncatewords:7}}</a> <a href="{{i.get_response_url}}">Новых откликов({{i.id|response_counter}})</a></td>
+	</tr>
+</table>
+
+{% endfor %}
+<p><a href="{{userprofile.get_my_responses_url}}"> Все отклики на ваши объявления({{count_responses}} новых)</a></p>
+{%if request.user.profile.author_announcements.all.count == 0 %}
+<a href="{% url 'add' %}"><button>Создайте свое первое объявление!</button></a>
+{%endif%}
+{%if userprofile.subscribed_categories_len > 0 %}
+<form action="unsubscribe/" method="POST">
+{% csrf_token %}
+<p class="mking">Ваши подписки</p>
+{% for category in userprofile.subscribing_categories.all %}
+    <label for="category">{{ category }}</label>
+    <input id="category" type="checkbox" name="category" value="{{ category }}" multiple>
+{%endfor%}
+<button type="submit" class="site-btn">Отписаться  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></button>
+</form>
+{%elif userprofile.subscribed_categories_len == 0 %}
+{%endif%}
+{%endif%}
+
+
+
+
+{% endblock %}

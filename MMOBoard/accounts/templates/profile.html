@@ -1,0 +1,10 @@
+
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends "main.html" %}
+ 
+{% block content %}
+<h2> {{user.get_username}} </h2>
+
+<a href="{% url 'confirm'%}"><button>Подтвердить email</button></a>
+
+{% endblock %}

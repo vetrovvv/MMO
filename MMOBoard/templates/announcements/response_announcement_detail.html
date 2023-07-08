@@ -1,0 +1,65 @@
+
+{% extends 'flatpages/default.html' %} 
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}
+Объявления
+{% endblock title %}
+ 
+{% block content %}
+
+<h3>Отклик на <a href="{{response.announcement.get_absolute_url}}">{{response.announcement.header}}</a> от {{response.announcement.created_at_date}} </h3>
+
+
+
+
+
+
+
+<p>Покупатель: {{response.buyer}}</p>
+
+
+
+
+{% if response.refuse == True %}
+{%else%}
+
+<p>{{response.message}}</p>
+
+	{%if response.confirm == True%}
+	<td>
+		🤝 Вы согласились на предложение!
+	</td>
+	{%endif%}
+
+	{%if response.confirm != True%}
+	<td>
+
+	<form method="POST" action="{% url 'confirm_response' %}">
+		{% csrf_token %} 
+		<input id ="response" type="hidden" name="response" value="{{response.id}}">
+		<input type="submit" value="Подтвердить отклик: ✅">
+	</form>
+	</td>
+    {%endif%}
+    {% if response.refuse != True %}
+    <td>
+    <form method="POST" action="{% url 'refuse_response' %}">
+		{% csrf_token %} 
+		<input id ="response" type="hidden" name="response" value="{{response.id}}">
+		<input type="submit" value="Отклонить отклик: ❌">
+    </form>
+    </td>
+    {%endif%}
+</tr>
+{%endif%}
+
+</table>
+
+<a class="btn1" href="/announcements/profile/{{response.author.id}}/responses/">Назад</a>
+
+
+
+    
+{% endblock content %}
